@@ -19,7 +19,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
-        android:onClick="countUp"/>
+        android:onClick="countUp"
+        android:longClickable="true"
+        />
 
     <Button
         android:id="@+id/buttontoast"
@@ -34,7 +36,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
-        android:onClick="showToast"/>
+        android:onClick="showToast"
+        />
 
     <TextView
         android:id="@+id/show_count"
