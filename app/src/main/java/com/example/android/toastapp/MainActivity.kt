@@ -3,6 +3,7 @@ package com.example.android.toastapp
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -18,6 +19,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         showClickCount = findViewById<View>(R.id.show_count) as TextView
         clickButton = findViewById<View>(R.id.button_count) as Button
+
+        if (savedInstanceState!=null){
+            clickCount=savedInstanceState.getInt("COUNT")
+            showClickCount!!.text = Integer.toString(clickCount)
+
+        }
 
         clickButton?.setOnLongClickListener(View.OnLongClickListener {
              v:View->
@@ -37,5 +44,10 @@ class MainActivity : AppCompatActivity() {
         if (showClickCount != null) {
             showClickCount!!.text = Integer.toString(clickCount)
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("COUNT", clickCount);
     }
 }
